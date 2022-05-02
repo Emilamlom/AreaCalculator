@@ -1,6 +1,4 @@
 class Formulas:
-    #TODO: Update formulas to return a value instead of printing it
-    #TODO: Remove input statements and use parameters instead
     #TODO: Add documentation for each method
     def circle(radius):
         radius = float(radius)
