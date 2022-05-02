@@ -89,17 +89,21 @@ class GUI:
         """
         Calls the correct calculate method and handles inputs/display
         """
+        calcs = ['Circle', 'Rectangle', 'Square', 'Triangle']
         opt = self.formula_option.get()
         if opt == 0:
             result = Formulas.circle(self.radius_entry.get())
+            self.radius_entry.delete(0, 'end')
         elif opt == 1:
             result = Formulas.rectangle(self.length_entry.get(), self.width_entry.get())
+            self.width_entry.delete(0, 'end')
+            self.length_entry.delete(0, 'end')
         elif opt == 2:
             result = Formulas.square(self.side_entry.get())
+            self.side_entry.delete(0, 'end')
         elif opt == 3:
             result = Formulas.triangle(self.base_entry.get(), self.height_entry.get())
+            self.height_entry.delete(0, 'end')
+            self.base_entry.delete(0, 'end')
 
-        self.label_result = Label(self.result_frame, text=f'Area = {result}', padx=5, pady=5).grid(column=0, row=0)
-
-        #self.entry_name.delete(0, 'end')
-        #self.entry_age.delete(0, 'end')
+        self.label_result = Label(self.result_frame, text=f'{calcs[opt]} Area = {result}', padx=5, pady=5).grid(column=0, row=0)
