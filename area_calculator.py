@@ -1,12 +1,9 @@
-from formulas import *
 from gui import *
-
-#TODO: Add GUI, remove input/print statements
 
 def main():
     window = Tk()
     window.title('Area Calculator')
-    window.geometry('450x300')
+    window.geometry('400x150')
     window.resizable(False, False)
     widgets = GUI(window)
     window.mainloop()
