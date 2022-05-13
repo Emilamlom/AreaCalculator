@@ -1,6 +1,9 @@
 from gui import *
 
 def main():
+    """
+    Sets up the window parameters and call the GUI.
+    """
     window = Tk()
     window.title('Area Calculator')
     window.geometry('400x150')

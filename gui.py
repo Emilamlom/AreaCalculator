@@ -61,36 +61,52 @@ class GUI:
         self.window.columnconfigure(3, weight=1)
         self.window.rowconfigure(1, weight=1)
 
-    def circlesel(self):
+    def circlesel(self) -> None:
+        """
+        One of a set of functions that hides and show it's respective form fields.
+        """
         self.rect_frame.grid_forget()
         self.square_frame.grid_forget()
         self.triangle_frame.grid_forget()
         self.circle_frame.grid(row=1, column=0)
 
-    def rectsel(self):
+    def rectsel(self) -> None:
+        """
+        One of a set of functions that hides and show it's respective form fields.
+        """
         self.circle_frame.grid_forget()
         self.square_frame.grid_forget()
         self.triangle_frame.grid_forget()
         self.rect_frame.grid(row=1, column=0)
 
-    def squaresel(self):
+    def squaresel(self) -> None:
+        """
+        One of a set of functions that hides and show it's respective form fields.
+        """
         self.rect_frame.grid_forget()
         self.circle_frame.grid_forget()
         self.triangle_frame.grid_forget()
         self.square_frame.grid(row=1, column=0)
 
-    def trianglesel(self):
+    def trianglesel(self) -> None:
+        """
+        One of a set of functions that hides and show it's respective form fields.
+        """
         self.rect_frame.grid_forget()
         self.square_frame.grid_forget()
         self.circle_frame.grid_forget()
         self.triangle_frame.grid(row=1, column=0)
 
-    def calcbutton(self):
+    def calcbutton(self) -> None:
         """
         Calls the correct calculate method and handles inputs/display
         """
         calcs = ['Circle', 'Rectangle', 'Square', 'Triangle']
         opt = self.formula_option.get()
+
+        if hasattr(self, 'label_result'):
+            self.label_result.config(text='')
+
         if opt == 0:
             result = Formulas.circle(self.radius_entry.get())
             self.radius_entry.delete(0, 'end')
@@ -106,4 +122,8 @@ class GUI:
             self.height_entry.delete(0, 'end')
             self.base_entry.delete(0, 'end')
 
-        self.label_result = Label(self.result_frame, text=f'{calcs[opt]} Area = {result}', padx=5, pady=5).grid(column=0, row=0)
+        if isinstance(result, (int, float)):
+            result = f'{calcs[opt]} Area = {result:.2f}'
+
+        self.label_result = Label(self.result_frame, text=result, padx=5, pady=5)
+        self.label_result.grid(column=0, row=0)
