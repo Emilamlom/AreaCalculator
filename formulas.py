@@ -14,7 +14,7 @@ class Formulas:
             else:
                 return (radius ** 2) * pi
         except ValueError as e:
-            return e
+            return str(e)
 
     def rectangle(length, width) -> float:
         '''
