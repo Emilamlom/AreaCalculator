@@ -1,7 +1,7 @@
 from math import pi
 
 class Formulas:
-    def circle(radius):
+    def circle(radius) -> float:
         '''
         Function to compute the area of a circle.
         :param radius: Radius of the circle
@@ -31,9 +31,7 @@ class Formulas:
             else:
                 return length * width
         except ValueError as e:
-            return e
-        except:
-            return "Error"
+            return str(e)
 
     def square(side: float) -> float:
         '''
@@ -48,9 +46,7 @@ class Formulas:
             else:
                 return side ** 2
         except ValueError as e:
-            return e
-        except:
-            return "Error"
+            return str(e)
 
     def triangle(base: float, height: float) -> float:
         '''
@@ -67,9 +63,4 @@ class Formulas:
             else:
                 return (base * height)/2
         except ValueError as e:
-            return e
-        except:
-            return "Error"
-
-if __name__ == '__main__':
-    Formulas.circle(-10)
+            return str(e)
